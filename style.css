@@ -13,30 +13,20 @@
     --hue-col12: 360;
 }
 
-body {background-color: #FCFAEE;}
+body {
+    background-image: url("https://wallpapersmug.com/download/3840x2400/59c97b/concert-hands-up-dark-party.jpg");
+    background-size: cover;
+}
 
 h1 {
   text-align: center;
-  color: #2B364F;
+  color: #b3d9d9;
 }
 
 nav {
     box-align: center;
   }
 
-#Qual {
-    background-color: #F0F7FA;
-    color: #2B364F;
-    margin: auto;
-    width: 50%;
-    padding: 4%;
-}
-
-#art {
-    background-color: lightblue;
-    text-align: center;
-    color: #2B364F;
-  }
 
 body, html {
   color: #333;
@@ -64,4 +54,7 @@ body, html {
 .container > table {
   justify-self: center;
   flex: 80%;
+  background-color: lightblue;
+    text-align: center;
+    color: #2B364F;
 }
