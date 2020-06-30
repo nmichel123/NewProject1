@@ -13,20 +13,28 @@
     --hue-col12: 360;
 }
 
+body {background-color: #FCFAEE;}
 
 h1 {
   text-align: center;
+  color: #2B364F;
 }
 
 nav {
     box-align: center;
   }
 
-#A
-
+#Qual {
+    background-color: #F0F7FA;
+    color: #2B364F;
+    margin: auto;
+    width: 50%;
+    padding: 4%;
+}
 
 #art {
-    border: 5px outset red;
     background-color: lightblue;
     text-align: center;
+    color: #2B364F;
   }
+
