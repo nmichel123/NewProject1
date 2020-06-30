@@ -13,7 +13,6 @@
     --hue-col12: 360;
 }
 
-
 h1 {
   text-align: center;
 }
@@ -21,3 +20,31 @@ h1 {
 nav {
     box-align: center;
   }
+
+body, html {
+  color: #333;
+  font-family: sans-serif;
+  display: flex;
+  flex: 100%;
+}
+
+.container {
+  display: flex;
+  flex: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+  align-content: center;
+}
+
+.container > div {
+  text-align: center;
+  justify-self: center;
+  margin-top: 40px;
+}
+
+.container > table {
+  justify-self: center;
+  flex: 80%;
+}
