@@ -38,12 +38,16 @@ h1 {
 
 h2 {
   color: #b3d9d9;
-
+  text-align: center;
+  
+ 
+   
 }
 
 .nav {
     box-align: center;
     opacity: 0.7;
+    
 }
 
 table {
