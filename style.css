@@ -1,28 +1,59 @@
-:root {
-    --hue-co11: 30;
-    --hue-col2: 60;
-    --hue-col3: 90;
-    --hue-col4: 120;
-    --hue-col5: 150;
-    --hue-col6: 180;
-    --hue-col7: 210;
-    --hue-col8: 240;
-    --hue-col9: 270;
-    --hue-col10: 300;
-    --hue-col11: 330;
-    --hue-col12: 360;
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 150%; 
+  height: 150%;
+  z-index: -1;
 }
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+html, body {
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
 
 h1 {
   text-align: center;
+  color: #b3d9d9;
+  position:absolute;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
 }
 
-nav {
+h2 {
+  color: #b3d9d9;
+
+}
+
+.nav {
     box-align: center;
-  }
+    opacity: 0.7;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
 
 body, html {
-  color: #333;
+ 
   font-family: sans-serif;
   display: flex;
   flex: 100%;
@@ -47,4 +78,7 @@ body, html {
 .container > table {
   justify-self: center;
   flex: 80%;
+  background-color: lightblue;
+    text-align: center;
+    color: #2B364F;
 }
