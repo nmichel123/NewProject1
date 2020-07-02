@@ -1,6 +1,4 @@
 $(document).on("click", "#search-button", function(e){
-   
-   
     var artGallery = $('#art');
     artGallery.empty();
     var artHead = $('<div class="bins aside-head">');
