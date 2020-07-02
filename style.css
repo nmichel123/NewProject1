@@ -39,17 +39,21 @@ h1 {
     z-index: 1;
 }
 
+.nav {
+  box-align: center;
+  opacity: 0.3;
+  padding-top: 50px;
+  z-index: 3;
+  color: #ffbe0b;
+}
+
+
+
 h2 {
   color: #ffbe0b;
   text-align: center;
   z-index: 2;
-}
-
-.nav {
-    box-align: center;
-    opacity: 0.3;
-    padding-top: 50px;
-    z-index: 3;
+  font-size: xx-large;
 }
 
 table {
@@ -91,3 +95,20 @@ body, html {
     color: #2B364F;
     z-index: 2;
 }
+
+.btn{
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: 20px;
+    border-color: #ffbe0b;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 22px;
+    color: white
+}
+
+a:active {
+  color: yellow;
+}
+
