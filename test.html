@@ -84,7 +84,7 @@ var settings = {
 $.ajax(settings).done(function (response) {
   
   console.log(response);
-  console.log(response.id)
+  console.log(response.id) //need to save this value to a variable to go in the call below
   
   
 })
@@ -93,7 +93,8 @@ var settings = {
 	"async": true,
   "crossDomain": true,
   "returnNull": false,
-	"url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/progress.php?id=" + "",
+  "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/progress.php?id=" + "", //variable should go here, putting response.id 
+                                                                                                //returns null but pasting the code in the quotes works. So a string storing the value should work.
   "method": "GET",
   "dataType": "JSON",
 	"headers": {
