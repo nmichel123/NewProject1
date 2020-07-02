@@ -69,13 +69,12 @@
 //         }
 //         });
 
-
-
 var settings = {
 	"async": true,
 	"crossDomain": true,
   "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ "https://www.youtube.com/watch?v=w9uWPBDHEKE&list=RDw9uWPBDHEKE&start_radio=1" +"&format=" + "mp3", //format var goes here
-	"method": "GET",
+  "method": "GET",
+  "dataType": "JSON",
 	"headers": {
 		"x-rapidapi-host": "youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com",
 		"x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667"
@@ -85,27 +84,27 @@ var settings = {
 $.ajax(settings).done(function (response) {
   
   console.log(response);
+  console.log(response.id)
+  
   
 })
 
-// .then(function(response) {
-//         console.log(response ,"id");
-// });
+var settings = {
+	"async": true,
+  "crossDomain": true,
+  "returnNull": false,
+	"url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/progress.php?id=" + "",
+  "method": "GET",
+  "dataType": "JSON",
+	"headers": {
+		"x-rapidapi-host": "youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com",
+		"x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667"
+	}
+}
 
-// var settings = {
-// 	"async": true,
-// 	"crossDomain": true,
-// 	"url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/progress.php?id=" + "1c56a2b71eb7c509512d0cc099a",
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com",
-// 		"x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667"
-// 	}
-// }
-
-// $.ajax(settings).done(function (response) {
-// 	console.log(response);
-// });
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});
 
 
 // "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ "" +"&format=mp3"
