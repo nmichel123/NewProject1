@@ -66,8 +66,6 @@ table {
 body, html {
  
   font-family: sans-serif;
-  display: flex;
-  flex: 100%;
 }
 
 .container {
@@ -90,6 +88,14 @@ body, html {
   justify-self: center;
   flex: 80%;
   background-color: lightblue;
-    text-align: center;
-    color: #2B364F;
+  text-align: center;
+  color: #2B364F;
+  max-width: 960px !important;
+}
+
+#art {
+  display: flex;
+  overflow: scroll;
+  max-width: 960px !important;
+  height: 253.43px
 }
