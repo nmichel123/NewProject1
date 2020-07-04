@@ -1,3 +1,171 @@
+body, html {
+  font-family: 'Oswald', sans-serif;
+  margin: 0;
+}
+
+h1, h2 {
+  color: #ffbe0b;
+  text-shadow: 2px 2px  black;
+}
+
+h1 {
+  font-size: 4.20rem;
+  text-align: center;
+  text-shadow: 2px 2px  black;
+}
+
+h2 {
+  font-size: 2.5rem;
+  padding: 20px;
+  backdrop-filter: blur(15px);
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+
+}
+
+h3 {
+  text-align: center;
+  text-justify: auto;
+  color: #999;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(153, 153, 153, 0.65);
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  flex-wrap: wrap-reverse;
+}
+
+.row > button {
+  max-height: 50px;
+  width: 200px;
+  opacity: 1;
+}
+
+.nav {
+    box-align: center;
+    padding: 0;
+    min-height: 420px;
+    height: 640px;
+    background: transparent;
+}
+
+.nav > input {
+  position: sticky;
+  top: 20px;
+  font-size: 36px;
+  font-weight: 200px;
+  height: 60px;
+  box-shadow: inset 0px 0px 5px 2px grey;
+  width: 240px;
+  border-radius: 10px;
+  border: 2px solid #999;
+  padding: 10px 20px;
+  opacity: 0.75;
+  align-self: center;
+  margin: 10% auto;
+}
+
+.nav > button {
+  position: sticky;
+  top: 20px;
+  font-size: 36px;
+  margin-left: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  text-shadow: 1px 1px grey;
+  margin: 10% auto;
+}
+
+.nav:hover {
+  backdrop-filter: blur(25px);
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  height: 768px;
+}
+
+
+body, html {
+  font-family: 'Oswald', sans-serif;
+  height: 100%;
+}
+
+button:hover {
+  color: yellow;
+  border: 2px solid yellow;
+  background-color: rgba(36, 47, 47, 0.671);
+}
+
+.container {
+  display: flex;
+  flex: 100%;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: column;
+  align-content: center;
+  margin: 0;
+}
+
+.container > div {
+  text-align: center;
+  justify-self: center;
+}
+
+.container > table {
+  justify-self: center;
+  flex: 80%;
+  background-color: lightblue;
+  text-align: center;
+  color: #2B364F;
+  max-width: 960px !important;
+}
+
+.btn{
+  background-color: transparent;
+  background-repeat:no-repeat;
+  border: 20px;
+  border-color: #ffbe0b;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  font-size: 22px;
+  color: white
+}
+
+#art {
+  display: flex;
+  overflow: scroll;
+  overflow-y: hidden;
+  max-width: 90% !important;
+  height: 253.43px;
+}
+
+#bootleg {
+  flex-wrap: wrap-reverse;
+}
+
+#videos {
+  display: flex;
+  overflow: scroll;
+  overflow-y: hidden;
+  max-width: 90% !important;
+  height: 325px;
+}
+
+#Qual {
+  display: flex;
+  max-width: 90% !important;
+  height: 253.43px;
+}
+
 #bg {
   position: fixed; 
   top: -50%; 
@@ -8,77 +176,16 @@
 }
 #bg img {
   position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
+  top: 420px; 
   margin: auto; 
   min-width: 50%;
   min-height: 50%;
+  filter: grayscale();
 }
 
-html, body {
-  position:fixed;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-}
-
-
-h1 {
-  text-align: center;
-  color: #b3d9d9;
-  position:absolute;
-    top:0px;
-    bottom:0px;
-    left:0px;
-    right:0px;
-}
-
-h2 {
-  color: #b3d9d9;
-
-}
-
-.nav {
-    box-align: center;
-    opacity: 0.7;
-}
-
-table {
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-
-
-body, html {
- 
-  font-family: sans-serif;
-  display: flex;
-  flex: 100%;
-}
-
-.container {
-  display: flex;
-  flex: 100%;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  flex-direction: column;
-  align-content: center;
-}
-
-.container > div {
-  text-align: center;
-  justify-self: center;
-  margin-top: 40px;
-}
-
-.container > table {
-  justify-self: center;
-  flex: 80%;
-  background-color: lightblue;
-    text-align: center;
-    color: #2B364F;
+#myVideo {
+  position: absolute;
+  left: 30%;
+  top: 420px;
+  width: 75%;
 }

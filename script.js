@@ -1,37 +1,87 @@
-$(document).on("click", "#search-button", function(e){
-    var artGallery = $('#art');
-    artGallery.empty();
-    var artHead = $('<div class="bins aside-head">');
-    artGallery.append(artHead);
-    var hTag = $('<h2>');
-    hTag.text("Album Artwork");
-    
-        let albumArt;
-        let artistName = $("#search-input").val();
-        var queryUrl = "https://api.discogs.com/database/search?q=" + artistName +"&key=RgHfTojdnkeQgCqFmkTT&secret=twfdmVrizBUNTUHHonIfYakTJsQaQPbO";
-        //album art retreival algorithm
-        // Find related albums to artist (single item) and then push it into an array
-        $.ajax({
-            url: queryUrl,
-            method: 'GET'
-        }).then(function(response) {
-            console.log(response.results[5].cover_image);
-            for(i=0; i<12; i++){
-                var album = response.results[i + 1].title;
-                if(album == response.results[i+2].title){ //if statement to advance by 1 if next album is a repeat
-                    i++;
-                }
-                var albumURL = response.results[i + 1].cover_image;
-                console.log(albumURL)
-                //albumArt.push(album);
-    
-                console.log(albumArt);
+function artGen(artistName) {
+    var queryUrl = "https://api.discogs.com/database/search?q=" + artistName +"&key=RgHfTojdnkeQgCqFmkTT&secret=twfdmVrizBUNTUHHonIfYakTJsQaQPbO";
+    //album art retreival algorithm
+    // Find related albums to artist (single item) and then push it into an array
+    $.ajax({
+        url: queryUrl,
+        method: 'GET'
+    }).then(function(response) {
+        var artGallery = $('#art');
+        artGallery.empty();;
+        
+        let len = 24;
+        for(i = 0; i < len; i++){
+            var album = response.results[i + 1].title;
+            if(album == response.results[i + 2].title){ //if statement to advance by 1 if next album is a repeat
+                i++;
+                len++;
+                //console.log(i);
+            }
+            var albumURL = response.results[i + 1].cover_image;
             var imgGen = $('<img>');
-            imgGen.addClass('');
-            imgGen.attr("style", "max-width: 250px; border: 5px solid var(--hue-background); flex-wrap: wrap;");
+            imgGen.addClass('artwork');
+            imgGen.attr("style", "max-width: 250px; border: 5px solid grey; flex-wrap: wrap;");
             imgGen.attr('id', 'album-art-'+ i)
             imgGen.attr('src', albumURL);
             artGallery.append(imgGen);
-            }
-        });
+        }
+    });
+}
+
+function vidGen(artistName) {
+    // Remove previous contents to make room for new content
+    $('#videos').empty();
+
+    var ytKey = 'AIzaSyDU8dDA7emi_uv9R_LXIIu2jprRZJ6-wR8';
+    var ytURL = 'https://www.googleapis.com/youtube/v3/search?q=' + artistName + "+concert&type=video&maxResults=12&part=snippet&key=" + ytKey;
+    $.ajax({
+        url: ytURL,
+        method: 'GET'
+    }).then(function(response) {
+        console.log(response);
+        var videosYT = response.items;
+            console.log(videosYT);
+        for(i = 0; i < videosYT.length; i++){
+            var iframeGen = $('<iframe style="width: 560px;" width="560" height="315" allowfullscreen>');
+            iframeGen.attr('src', 'https://www.youtube.com/embed/' + videosYT[i].id.videoId);            
+            $('#videos').append(iframeGen);
+        }
+    });
+}
+
+function downloadGen(videoUrl) {
+    $('#Qual').empty();
+    let quality = ['mp3 (audio)', '720p', '1080p', '4k'];
+    console.log(quality);
+    
+    for(i = 0; i < 4; i++){
+    let quality = ['mp3 (audio)', '720p', '1080p', '4k'];
+        console.log('quality-gen ' + i);
+    var rowGen = $('<div class="row" style="width: 100%;">');
+    rowGen.attr('id', 'row-' +  i);
+
+    //rowGen.attr("data-type", quality[j]);
+    $('#Qual').append(rowGen);
+
+    var hTag = $('<h3>');
+    hTag.text(quality[i]);
+        console.log(quality[i]);
+    $('#row-' + i).append(hTag);
+
+    var btnGen = $('<button class="btn"><i class="fa fa-download"></i>');
+    btnGen.text('download');
+    btnGen.attr('link', videoUrl);
+    $('#row-' + i).append(btnGen);
+    }
+}
+
+$(document).on("click", "#search-button", function(e) {
+    e.preventDefault();
+    artistName = $("#search-input").val();
+
+    artGen(artistName);
+    vidGen(artistName);  
 });
+
+artGen('rick roll');
+vidGen('Rick-Roll');
