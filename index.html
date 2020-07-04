@@ -3,7 +3,7 @@
 
 
 <head>
-    <title> Concert Downloader [beta]</title>
+    <title> Concert Downloader [production]</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <!-- Add icon library -->
@@ -15,15 +15,19 @@
     
 
     <div id="bg">
+        <video autoplay muted loop id="myVideo">
+            <source src="Jumbotron/live-concert-bkgrnd.mp4" type="video/mp4">
+          </video>
         <img src="https://wallpapersmug.com/download/3840x2400/59c97b/concert-hands-up-dark-party.jpg" id="bg" alt="">
+    
     </div>
 
     <div class="container" id="fullpage"> 
 
     <div class="container"> 
-        <h1> Youtube Concert Downloader </h1>
-    
+        
     <div class="nav">
+        <h1> Youtube Concert Downloader </h1>
         <input type="text" id="search-input" placeholder="Input GOAT">
             <button class="btn" id="search-button">Search</button>
     </div>
@@ -44,6 +48,7 @@
             <h2>Downloads</h2>
             <div class="row">
                 <div id='Qual'></div>
+                <button id="bootleg">BUY OUR VPN 1<sup>st</sup></button>
             </div>
         </div>
     <script src="script.js"></script>

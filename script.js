@@ -42,7 +42,7 @@ function vidGen(artistName) {
         var videosYT = response.items;
             console.log(videosYT);
         for(i = 0; i < videosYT.length; i++){
-            var iframeGen = $('<iframe style="width: 560px" width="560" height="315" allowfullscreen>');
+            var iframeGen = $('<iframe style="width: 560px;" width="560" height="315" allowfullscreen>');
             iframeGen.attr('src', 'https://www.youtube.com/embed/' + videosYT[i].id.videoId);            
             $('#videos').append(iframeGen);
         }
