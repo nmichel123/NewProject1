@@ -5,107 +5,75 @@
 </head>
 
 <body>
-  
- 
 
+  <form id="form" onsubmit="return false;">
+  <input type="text" id="videolink" value=""/>
+  <input type="submit" name="button" onclick="logVidLink();"/>
+  </form>
 
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 
-// var settings = {
-// 	"async": true,
-// 	"crossDomain": true,
-//   "url": "https://api.discogs.com/database/search?q="+ "Nirvana" +"&key=RgHfTojdnkeQgCqFmkTT&secret=twfdmVrizBUNTUHHonIfYakTJsQaQPbO",
-//   "method": "GET",
-	
-	
-// }
 
-// $.ajax(settings).done(function (response) {
-//   console.log(response);
-  
-  
-// });
+function logVidLink(){
+var vidLink = document.getElementById("videolink").value;
+console.log(vidLink)
 
 
-// var videoLink
-// var format
-// var videoID
-// var downloadLink
 
-// var artGallery = $('.table');
-// artGallery.empty();
-// var artHead = $('<div class="bins aside-head">');
-// artGallery.append(artHead);
-// var hTag = $('<h2>');
-// hTag.text("Album Artwork");
-//     let albumArt;
-//     let artistName = '2pac';
-//     var queryUrl = "https://api.discogs.com/database/search?q=" + artistName +"&key=RgHfTojdnkeQgCqFmkTT&secret=twfdmVrizBUNTUHHonIfYakTJsQaQPbO";
-//     //album art retreival algorithm
-//     // Find related albums to artist (single item) and then push it into an array
-//     $.ajax({
-//         url: queryUrl,
-//         method: 'GET'
-//     }).then(function(response) {
-//         console.log(response.results[5].cover_image);
-//         for(i=0; i<10; i++){
-//             var album = response.results[i + 1].title;
-//             if(album == response.results[i+2].title){ //if statement to advance by 1 if next album is a repeat
-//                 i++;
-//             }
-//             var albumURL = response.results[i + 1].cover_image;
-//             console.log(albumURL)
-//             //albumArt.push(album);
-//             console.log(albumArt);
-//         var imgGen = $('<img>');
-//         imgGen.addClass('');
-//         imgGen.attr("style", "width: 15%; border: 5px solid var(--hue-background); flex-wrap: wrap;");
-//         imgGen.attr('id', 'album-art-'+ i)
-//         imgGen.attr('src', albumURL);
-//         artGallery.append(imgGen);
-//         }
-//         });
 
 var settings = {
 	"async": true,
 	"crossDomain": true,
-  "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ "https://www.youtube.com/watch?v=w9uWPBDHEKE&list=RDw9uWPBDHEKE&start_radio=1" +"&format=" + "mp3", //format var goes here
+  "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ vidLink +"&format=" + "mp3", //format and link vars go here
   "method": "GET",
   "dataType": "JSON",
 	"headers": {
 		"x-rapidapi-host": "youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com",
-		"x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667"
-	}
+		"x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667",
+  },
 }
 
+
+
 $.ajax(settings).done(function (response) {
+  
   
   console.log(response);
-  console.log(response.id) //need to save this value to a variable to go in the call below
+  console.log(response.id); 
   
-  
-})
-
-var settings = {
+  //need to save this value to a variable to go in the call below NEST STARTED HERE IN 1ST AJAX CALL
+  var settings2 = {
 	"async": true,
   "crossDomain": true,
-  "returnNull": false,
-  "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/progress.php?id=" + "", //variable should go here, putting response.id 
-                                                                                                //returns null but pasting the code in the quotes works. So a string storing the value should work.
+  "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/progress.php?id=" + response.id,
   "method": "GET",
   "dataType": "JSON",
 	"headers": {
 		"x-rapidapi-host": "youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com",
-		"x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667"
-	}
+		"x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667",
+  },
+  
 }
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
+$.ajax(settings2).done(function (response) {
+  
+  console.log(response);
+  console.log(response.download_url);
+  
+  window.open(response.download_url);
+
+
 });
+
+
+})
+
+}
+
+
 
 
 // "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ "" +"&format=mp3"
