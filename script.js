@@ -32,7 +32,7 @@ function vidGen(artistName) {
     // Remove previous contents to make room for new content
     $('#videos').empty();
 
-    var ytKey = 'AIzaSyDU8dDA7emi_uv9R_LXIIu2jprRZJ6-wR8';
+    var ytKey = 'AIzaSyCKvd4i6ZTfSai5ZhbIz18hPLUeveX8ucw';
     var ytURL = 'https://www.googleapis.com/youtube/v3/search?q=' + artistName + "+concert&type=video&maxResults=12&part=snippet&key=" + ytKey;
     $.ajax({
         url: ytURL,
@@ -85,3 +85,59 @@ $(document).on("click", "#search-button", function(e) {
 
 artGen('rick roll');
 vidGen('Rick-Roll');
+
+//function for downloading YouTube videos 
+function logVidLink(){
+    var vidLink = document.getElementById("videolink").value;
+    console.log(vidLink)
+    
+    
+    
+    
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+      "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ vidLink +"&format=" + "1080",
+      "method": "GET",
+      "dataType": "JSON",
+        "headers": {
+            "x-rapidapi-host": "youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com",
+            "x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667",
+      },
+    }
+    
+    
+    
+    $.ajax(settings).done(function (response) {
+      
+      
+      console.log(response);
+      console.log(response.id); 
+      
+      var settings2 = {
+        "async": true,
+      "crossDomain": true,
+      "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/progress.php?id=" + response.id,
+      "method": "GET",
+      "dataType": "JSON",
+        "headers": {
+            "x-rapidapi-host": "youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com",
+            "x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667",
+      },
+      
+    }
+    
+    $.ajax(settings2).done(function (response) {
+      
+      console.log(response);
+      console.log(response.download_url);
+      
+      window.open(response.download_url);
+    
+    
+    });
+    
+    
+    })
+    
+    }

@@ -1,1 +1,3 @@
-# NewProject1
+# Concert Downloader
+
+This website is meant to allow a user to search a musicians name and be returned cover art and concert videos. The name is run through an API that pulls an array of cover art/photos of the artist and displays it for the user to see. The user is also given a display of concert videos of the artist that are available on YouTube. If the user finds a video that they want to keep, they can copy the link to the video from YouTube and enter it into the downloader at the bottom of the page. When the downloader returns successfully, an HD(1080p) copy of the video will begin to download automatically. 
