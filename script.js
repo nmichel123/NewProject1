@@ -85,3 +85,58 @@ $(document).on("click", "#search-button", function(e) {
 
 artGen('rick roll');
 vidGen('Rick-Roll');
+
+function logVidLink(){
+    var vidLink = document.getElementById("videolink").value;
+    console.log(vidLink)
+    
+    
+    
+    
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+      "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ vidLink +"&format=" + "1080", //format and link vars go here
+      "method": "GET",
+      "dataType": "JSON",
+        "headers": {
+            "x-rapidapi-host": "youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com",
+            "x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667",
+      },
+    }
+    
+    
+    
+    $.ajax(settings).done(function (response) {
+      
+      
+      console.log(response);
+      console.log(response.id); 
+      
+      var settings2 = {
+        "async": true,
+      "crossDomain": true,
+      "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/progress.php?id=" + response.id,
+      "method": "GET",
+      "dataType": "JSON",
+        "headers": {
+            "x-rapidapi-host": "youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com",
+            "x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667",
+      },
+      
+    }
+    
+    $.ajax(settings2).done(function (response) {
+      
+      console.log(response);
+      console.log(response.download_url);
+      
+      window.open(response.download_url);
+    
+    
+    });
+    
+    
+    })
+    
+    }
