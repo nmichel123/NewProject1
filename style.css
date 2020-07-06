@@ -140,6 +140,12 @@ button:hover {
   color: white
 }
 
+.videoInput{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #art {
   display: flex;
   overflow: scroll;

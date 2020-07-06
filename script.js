@@ -32,7 +32,7 @@ function vidGen(artistName) {
     // Remove previous contents to make room for new content
     $('#videos').empty();
 
-    var ytKey = 'AIzaSyDU8dDA7emi_uv9R_LXIIu2jprRZJ6-wR8';
+    var ytKey = 'AIzaSyCKvd4i6ZTfSai5ZhbIz18hPLUeveX8ucw';
     var ytURL = 'https://www.googleapis.com/youtube/v3/search?q=' + artistName + "+concert&type=video&maxResults=12&part=snippet&key=" + ytKey;
     $.ajax({
         url: ytURL,
@@ -86,6 +86,7 @@ $(document).on("click", "#search-button", function(e) {
 artGen('rick roll');
 vidGen('Rick-Roll');
 
+//function for downloading YouTube videos 
 function logVidLink(){
     var vidLink = document.getElementById("videolink").value;
     console.log(vidLink)
