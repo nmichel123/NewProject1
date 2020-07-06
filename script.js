@@ -32,7 +32,7 @@ function vidGen(artistName) {
     // Remove previous contents to make room for new content
     $('#videos').empty();
 
-    var ytKey = 'AIzaSyCKvd4i6ZTfSai5ZhbIz18hPLUeveX8ucw';
+    var ytKey = 'AIzaSyDdCTpuViTySaPrZnRPMRvj1KgyJEejL_A';
     var ytURL = 'https://www.googleapis.com/youtube/v3/search?q=' + artistName + "+concert&type=video&maxResults=12&part=snippet&key=" + ytKey;
     $.ajax({
         url: ytURL,
@@ -109,6 +109,10 @@ function logVidLink(){
     
     
     $.ajax(settings).done(function (response) {
+
+
+
+        
       
       
       console.log(response);
@@ -131,8 +135,26 @@ function logVidLink(){
       
       console.log(response);
       console.log(response.download_url);
-      
+
       window.open(response.download_url);
+
+      var settings3 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/startDownload.php?url=" + download_url,
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com",
+            "x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667"
+        }
+    }
+    
+    $.ajax(settings3).done(function (response) {
+        console.log(response);
+        
+    });
+      
+      
     
     
     });
