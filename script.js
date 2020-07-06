@@ -38,13 +38,19 @@ function vidGen(artistName) {
         url: ytURL,
         method: 'GET'
     }).then(function(response) {
-        console.log(response);
+        //console.log(response);
         var videosYT = response.items;
-            console.log(videosYT);
+            //console.log(videosYT);
+            $('.video-buttons').empty();
         for(i = 0; i < videosYT.length; i++){
             var iframeGen = $('<iframe style="width: 560px;" width="560" height="315" allowfullscreen>');
             iframeGen.attr('src', 'https://www.youtube.com/embed/' + videosYT[i].id.videoId);            
             $('#videos').append(iframeGen);
+
+            var buttonGen = $('<button id="download-button">');
+            buttonGen.attr("alt", videosYT[i].id.videoId);
+            buttonGen.text('Vid ' + (i + 1) + ' URL');
+            $('.video-buttons').append(buttonGen);
         }
     });
 }
@@ -83,6 +89,12 @@ $(document).on("click", "#search-button", function(e) {
     vidGen(artistName);  
 });
 
+$(document).on("click", "#download-button", function(e) {
+    e.preventDefault();
+    var link = $(this).attr('alt');
+    $('#videolink').val('https://youtu.be/' + link);
+});
+
 artGen('rick roll');
 vidGen('Rick-Roll');
 
@@ -90,9 +102,6 @@ vidGen('Rick-Roll');
 function logVidLink(){
     var vidLink = document.getElementById("videolink").value;
     console.log(vidLink)
-    
-    
-    
     
     var settings = {
         "async": true,
@@ -105,8 +114,6 @@ function logVidLink(){
             "x-rapidapi-key": "08f626399fmsh6817ac6eb50e800p1acd6djsnf6dbbd0bd667",
       },
     }
-    
-    
     
     $.ajax(settings).done(function (response) {
 
@@ -130,7 +137,7 @@ function logVidLink(){
       },
       
     }
-    
+    setTimeout(
     $.ajax(settings2).done(function (response) {
       
       console.log(response);
@@ -157,7 +164,7 @@ function logVidLink(){
       
     
     
-    });
+    }), 800);
     
     
     })

@@ -156,6 +156,15 @@ button:hover {
   margin-right: auto;
 }
 
+.video-buttons {
+  display: flex;
+  flex: 50%;
+  flex-wrap: wrap;
+  margin: 20px 0px;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
 #art {
   display: flex;
   overflow: scroll;
@@ -205,3 +214,19 @@ button:hover {
   top: 420px;
   width: 75%;
 }
+
+#download-button {
+  display: flex;
+  flex: 20%;
+  flex-wrap: wrap;
+  height: 6%;
+  width: 10%;
+  padding: 10px;
+  margin: 10px 5%;
+  background-color: rgba(153, 153, 153, 0.25);
+  backdrop-filter: blur(5px);
+  border-radius: 4.20px;
+  color: white;
+  text-align: center;
+}
+
