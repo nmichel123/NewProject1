@@ -1,15 +1,23 @@
-
+<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <title>TESTINGTESTING123</title>
 </head>
 
 <body>
+  
 
   <form id="form" onsubmit="return false;">
   <input type="text" id="videolink" value=""/>
-  <input type="submit" name="button" onclick="logVidLink();"/>
+  <input type="submit" name="button" onclick="downloadVid();"/> 
   </form>
+<!-- 
+  <input type="button" id="q1" value="mp3" onclick="setQuality();"/>
+  <input type="button" id="q2" value="360" onclick="setQuality2();"/>
+  <input type="button" id="q3" value="480" onclick="setQuality3();"/>
+  <input type="button" id="q4" value="720" onclick="setQuality4();"/>
+  <input type="button" id="q5" value="1080" onclick="setQuality5();"/> 
+-->
 
 </body>
 
@@ -17,17 +25,36 @@
 <script>
 
 
-function logVidLink(){
+// function setQuality(){
+// var quality = document.getElementById("q1").value;
+// console.log(quality)}
+
+// function setQuality2(){
+// var quality = document.getElementById("q2").value;
+// console.log(quality)}
+
+// function setQuality3(){
+// var quality = document.getElementById("q3").value;
+// console.log(quality)}
+
+// function setQuality4(){
+// var quality = document.getElementById("q4").value;
+// console.log(quality)}
+
+// function setQuality5(){
+// var quality = document.getElementById("q5").value;
+// console.log(quality)}
+
+
+
+function downloadVid(){
 var vidLink = document.getElementById("videolink").value;
 console.log(vidLink)
-
-
-
 
 var settings = {
 	"async": true,
 	"crossDomain": true,
-  "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ vidLink +"&format=" + "mp3", //format and link vars go here
+  "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ vidLink +"&format=" + "1080", //format and link vars go here
   "method": "GET",
   "dataType": "JSON",
 	"headers": {
@@ -36,15 +63,13 @@ var settings = {
   },
 }
 
-
-
 $.ajax(settings).done(function (response) {
   
   
   console.log(response);
   console.log(response.id); 
   
-  //need to save this value to a variable to go in the call below NEST STARTED HERE IN 1ST AJAX CALL
+ 
   var settings2 = {
 	"async": true,
   "crossDomain": true,
@@ -68,16 +93,8 @@ $.ajax(settings2).done(function (response) {
 
 });
 
-
 })
 
 }
-
-
-
-
-// "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ "" +"&format=mp3"
-
-// https://www.youtube.com/watch?v=w9uWPBDHEKE&list=RDw9uWPBDHEKE&start_radio=1
 
 </script>
