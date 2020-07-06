@@ -95,8 +95,8 @@ $(document).on("click", "#download-button", function(e) {
     $('#videolink').val('https://youtu.be/' + link);
 });
 
-artGen('rick roll');
-vidGen('Rick-Roll');
+artGen('rick astley');
+vidGen('rick astley');
 
 //function for downloading YouTube videos 
 function logVidLink(){
