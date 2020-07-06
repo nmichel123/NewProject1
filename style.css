@@ -140,6 +140,16 @@ button:hover {
   color: white
 }
 
+.subBtn{
+ color: #ffbe0b;
+ background-color: transparent;
+ font-size: 25px;
+ border: 20px; 
+ cursor: pointer;
+ font-family: 'Oswald', sans-serif;
+ text-shadow: 2px 2px  black
+}
+
 .videoInput{
   display: block;
   margin-left: auto;

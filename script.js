@@ -97,7 +97,7 @@ function logVidLink(){
     var settings = {
         "async": true,
         "crossDomain": true,
-      "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ vidLink +"&format=" + "1080", //format and link vars go here
+      "url": "https://youtube-video-downloader-4k-and-8k-mp3.p.rapidapi.com/download.php?start=1&end=1&button=1&url="+ vidLink +"&format=" + "1080",
       "method": "GET",
       "dataType": "JSON",
         "headers": {
